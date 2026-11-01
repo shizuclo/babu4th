@@ -6,45 +6,274 @@
   <title>Happy 4th Monthsary!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background-color: #1a1721; font-family: 'Plus Jakarta Sans', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 10px; color: #2c3e50; }
-    #landing-stage { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 80vh; width: 100%; }
-    .guitar-btn { background: none; border: none; cursor: pointer; outline: none; transition: transform 0.2s ease; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+    body { 
+      background-color: #1a1721; 
+      font-family: 'Caveat', cursive; 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center; 
+      padding: 20px 10px; 
+      color: #1e293b; 
+    }
+
+    #landing-stage { 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center; 
+      text-align: center; 
+      min-height: 80vh; 
+      width: 100%; 
+    }
+
+    .guitar-btn { 
+      background: none; 
+      border: none; 
+      cursor: pointer; 
+      outline: none; 
+      transition: transform 0.2s ease; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      gap: 15px; 
+    }
+
     .guitar-btn:hover { transform: scale(1.08); }
-    .guitar-emoji { font-size: 110px; filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.6)); animation: pulse 2s infinite ease-in-out; }
-    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-    .start-btn-label { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #fff; font-size: 1.4rem; font-weight: 800; padding: 14px 32px; border-radius: 50px; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4); border: 2px solid #ffffff; text-transform: uppercase; }
-    #notebook-container { display: none; width: 100%; max-width: 980px; perspective: 1000px; }
-    .notebook-spread { background: #e8f1fd; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 80px rgba(216, 229, 248, 0.8); display: flex; flex-direction: row; position: relative; overflow: hidden; border: 4px solid #ffffff; }
-    .notebook-spread::after { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 30px; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.08), rgba(0,0,0,0.02), rgba(0,0,0,0.08)); pointer-events: none; z-index: 10; }
-    .page { flex: 1; padding: 35px 30px; position: relative; background-image: linear-gradient(#c5d9f8 1px, transparent 1px); background-size: 100% 28px; min-height: 850px; }
+    .guitar-emoji { 
+      font-size: 110px; 
+      filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.6)); 
+      animation: pulse 2s infinite ease-in-out; 
+    }
+
+    @keyframes pulse { 
+      0%, 100% { transform: scale(1); } 
+      50% { transform: scale(1.05); } 
+    }
+
+    .start-btn-label { 
+      background: linear-gradient(135deg, #ec4899, #8b5cf6); 
+      color: #fff; 
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; 
+      font-weight: 800; 
+      padding: 14px 32px; 
+      border-radius: 50px; 
+      letter-spacing: 1px; 
+      box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4); 
+      border: 2px solid #ffffff; 
+      text-transform: uppercase; 
+    }
+
+    #notebook-container { 
+      display: none; 
+      width: 100%; 
+      max-width: 980px; 
+    }
+
+    .notebook-spread { 
+      background: #e8f1fd; 
+      border-radius: 16px; 
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 80px rgba(216, 229, 248, 0.8); 
+      display: flex; 
+      flex-direction: row; 
+      position: relative; 
+      overflow: hidden; 
+      border: 4px solid #ffffff; 
+    }
+
+    .notebook-spread::after { 
+      content: ''; 
+      position: absolute; 
+      top: 0; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      width: 30px; 
+      height: 100%; 
+      background: linear-gradient(to right, rgba(0,0,0,0.08), rgba(0,0,0,0.02), rgba(0,0,0,0.08)); 
+      pointer-events: none; 
+      z-index: 10; 
+    }
+
+    .page { 
+      flex: 1; 
+      padding: 30px 25px; 
+      position: relative; 
+      background-image: linear-gradient(#c5d9f8 1px, transparent 1px); 
+      background-size: 100% 28px; 
+      display: flex;
+      flex-direction: column;
+    }
+
     .page-left { border-right: 1px solid rgba(0,0,0,0.08); }
-    .header-box { border-top: 3px double #2c3e50; border-bottom: 3px double #2c3e50; padding: 8px 0; text-align: center; margin-bottom: 20px; }
-    .page-num-top { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #64748b; margin-bottom: 4px; }
-    .main-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; letter-spacing: 2px; color: #1e293b; text-transform: uppercase; }
-    .sub-title { font-family: 'Caveat', cursive; font-size: 1.5rem; color: #ec4899; font-weight: 700; }
-    .cloud-box { background: #ffffff; border-radius: 40px; padding: 22px; margin: 20px 0; box-shadow: 0 8px 20px rgba(147, 197, 253, 0.3); border: 2px dashed #93c5fd; position: relative; text-align: center; }
-    .cloud-title { font-size: 1.25rem; font-weight: 800; color: #ec4899; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
-    .letter-text { font-size: 0.96rem; line-height: 28px; color: #334155; text-align: justify; margin-bottom: 18px; }
-    .info-section-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 900; text-align: center; margin: 25px 0 15px 0; color: #1e293b; border-bottom: 2px solid #2c3e50; padding-bottom: 5px; }
-    .photo-card { background: #ffffff; padding: 12px 12px 18px 12px; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 20px; transform: rotate(-1deg); }
-    .photo-card:nth-child(even) { transform: rotate(1deg); }
-    .photo-frame { width: 100%; height: 240px; background: #e2e8f0; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-    .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
-    .photo-caption { font-size: 0.9rem; line-height: 1.4; color: #475569; margin-top: 10px; text-align: center; font-weight: 600; }
-    .remember-container { background: #ffffff; border-left: 5px solid #ec4899; padding: 16px; border-radius: 0 12px 12px 0; margin: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
-    .remember-title { font-size: 1.25rem; font-weight: 900; color: #0f172a; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+
+    .header-box { 
+      border-top: 2px solid #2c3e50; 
+      border-bottom: 2px solid #2c3e50; 
+      padding: 6px 0; 
+      text-align: center; 
+      margin-bottom: 15px; 
+    }
+
+    .page-num-top { 
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem; 
+      font-weight: 700; 
+      letter-spacing: 1.5px; 
+      color: #64748b; 
+      margin-bottom: 2px; 
+    }
+
+    .main-title { 
+      font-family: 'Playfair Display', serif; 
+      font-size: 1.8rem; 
+      font-weight: 900; 
+      letter-spacing: 2px; 
+      color: #1e293b; 
+      text-transform: uppercase; 
+    }
+
+    .sub-title { 
+      font-size: 1.6rem; 
+      color: #ec4899; 
+      font-weight: 700; 
+    }
+
+    .cloud-box { 
+      background: #ffffff; 
+      border-radius: 30px; 
+      padding: 18px; 
+      margin: 15px 0; 
+      box-shadow: 0 4px 15px rgba(147, 197, 253, 0.25); 
+      border: 2px dashed #93c5fd; 
+      text-align: center; 
+    }
+
+    .cloud-title { 
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; 
+      font-weight: 900; 
+      color: #ec4899; 
+      letter-spacing: 1px; 
+      margin: 6px 0; 
+    }
+
+    .letter-text { 
+      font-size: 1.25rem; 
+      line-height: 28px; 
+      color: #1e293b; 
+      text-align: left; 
+      margin-bottom: 14px; 
+    }
+
+    .info-section-title { 
+      font-family: 'Playfair Display', serif; 
+      font-size: 1.25rem; 
+      font-weight: 900; 
+      text-align: center; 
+      margin: 10px 0 15px 0; 
+      color: #1e293b; 
+      border-bottom: 2px solid #2c3e50; 
+      padding-bottom: 4px; 
+    }
+
+    .photo-card { 
+      background: #ffffff; 
+      padding: 10px 10px 14px 10px; 
+      border-radius: 6px; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06); 
+      margin-bottom: 15px; 
+    }
+
+    .photo-frame { 
+      width: 100%; 
+      height: 220px; 
+      background: #f1f5f9; 
+      border-radius: 4px; 
+      overflow: hidden; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+    }
+
+    .photo-frame img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+    }
+
+    .photo-caption { 
+      font-size: 1.15rem; 
+      line-height: 1.3; 
+      color: #334155; 
+      margin-top: 8px; 
+      text-align: center; 
+      font-weight: 600; 
+    }
+
+    .remember-container { 
+      background: #ffffff; 
+      border-left: 5px solid #ec4899; 
+      padding: 14px; 
+      border-radius: 0 10px 10px 0; 
+      margin: 15px 0; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03); 
+    }
+
+    .remember-title { 
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; 
+      font-weight: 900; 
+      color: #0f172a; 
+      letter-spacing: 1px; 
+      margin-bottom: 8px; 
+    }
+
     .remember-list { list-style-type: none; }
-    .remember-list li { font-size: 0.92rem; line-height: 1.5; color: #334155; margin-bottom: 8px; padding-left: 20px; position: relative; }
-    .remember-list li::before { content: '★'; position: absolute; left: 0; color: #ec4899; font-size: 0.85rem; }
-    .final-love-note { font-family: 'Caveat', cursive; font-size: 1.35rem; line-height: 1.4; color: #be185d; background: rgba(255, 255, 255, 0.7); padding: 16px; border-radius: 12px; border: 1.5px dashed #f472b6; margin-top: 25px; text-align: center; }
-    @media (max-width: 768px) { .notebook-spread { flex-direction: column; } .page-left { border-right: none; border-bottom: 2px dashed #94a3b8; } }
+
+    .remember-list li { 
+      font-size: 1.2rem; 
+      line-height: 1.4; 
+      color: #1e293b; 
+      margin-bottom: 6px; 
+      padding-left: 18px; 
+      position: relative; 
+    }
+
+    .remember-list li::before { 
+      content: '★'; 
+      position: absolute; 
+      left: 0; 
+      color: #ec4899; 
+      font-size: 0.9rem; 
+    }
+
+    .final-love-note { 
+      font-size: 1.35rem; 
+      line-height: 1.35; 
+      color: #be185d; 
+      background: rgba(255, 255, 255, 0.75); 
+      padding: 14px; 
+      border-radius: 12px; 
+      border: 1.5px dashed #f472b6; 
+      margin-top: 15px; 
+      text-align: center; 
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) { 
+      .notebook-spread { flex-direction: column; } 
+      .page-left { border-right: none; border-bottom: 2px dashed #94a3b8; } 
+    }
   </style>
 </head>
 <body>
 
+  <!-- STEP 1: GUITAR LANDING SCREEN -->
   <div id="landing-stage">
     <button class="guitar-btn" onclick="openNotebook()">
       <div class="guitar-emoji">🎸</div>
@@ -52,6 +281,7 @@
     </button>
   </div>
 
+  <!-- STEP 2: BALANCED 2-PAGE NOTEBOOK SPREAD -->
   <div id="notebook-container">
     <div class="notebook-spread">
       
@@ -72,9 +302,20 @@
         </div>
 
         <div class="cloud-box">
-          <p style="font-size: 0.9rem; color: #64748b; font-weight: 600;">So when I found out about this festival, I was like "naahhh di pwedeng hindi namin to puntahan." So, I'm officially inviting you to attend the</p>
+          <p style="font-size: 1.15rem; color: #475569;">So when I found out about this festival, I was like "naahhh di pwedeng hindi namin to puntahan." So, I'm officially inviting you to attend the</p>
           <div class="cloud-title">FIREWORKS CIRCUS MUSIC FESTIVAL</div>
-          <p style="font-size: 0.9rem; color: #64748b; font-weight: 600; margin-top: 4px;">with me as my 4th monthsary gift and celebration with you!</p>
+          <p style="font-size: 1.15rem; color: #475569;">with me as my 4th monthsary gift and celebration with you!</p>
+        </div>
+
+        <!-- LINEUP PHOTO ON PAGE 1 TO BALANCE SPACE -->
+        <div class="photo-card">
+          <div class="photo-frame">
+            <img src="PASTE_LINEUP_IMAGE_URL_HERE" alt="Lineup Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; color:#94a3b8; font-weight:bold; font-size:1.2rem;">[ LINEUP IMAGE HERE ]</div>
+          </div>
+          <div class="photo-caption">
+            We can actually go at whatever time we want, but the earlier, the better, so it’ll be less crowded and we can secure spots closer to the front.
+          </div>
         </div>
       </div>
 
@@ -84,20 +325,11 @@
         
         <div class="info-section-title">Here's what you need to know</div>
 
-        <!-- LINEUP IMAGE CARD -->
-        <div class="photo-card">
-          <div class="photo-frame">
-            <img src="https://github.com/user-attachments/assets/ab4aea38-1a59-4e2e-bfd3-cd6b64e4aa1c" alt="Lineup Photo">
-          </div>
-          <div class="photo-caption">
-            We can actually go at whatever time we want, but the earlier, the better, so it’ll be less crowded and we can secure spots closer to the front.
-          </div>
-        </div>
-
         <!-- LAYOUT IMAGE CARD -->
         <div class="photo-card">
           <div class="photo-frame">
-            <img src="https://github.com/user-attachments/assets/486633a2-77c2-4e6d-a108-9ccdedca170f" alt="Layout Map Photo">
+            <img src="PASTE_LAYOUT_IMAGE_URL_HERE" alt="Layout Map Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; color:#94a3b8; font-weight:bold; font-size:1.2rem;">[ LAYOUT MAP IMAGE HERE ]</div>
           </div>
           <div class="photo-caption">
             We're in the Platinum area!
@@ -107,17 +339,19 @@
         <!-- LOCATION IMAGE CARD -->
         <div class="photo-card">
           <div class="photo-frame">
-            <img src="https://github.com/user-attachments/assets/92bef305-ee04-4534-85ce-eb732f441ec9" alt="Location Map Photo">
+            <img src="PASTE_LOCATION_IMAGE_URL_HERE" alt="Location Map Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; color:#94a3b8; font-weight:bold; font-size:1.2rem;">[ LOCATION MAP IMAGE HERE ]</div>
           </div>
           <div class="photo-caption">
             📍Bridgetown Central Park, Pasig City
           </div>
         </div>
 
-        <div class="letter-text" style="margin-top: 15px;">
+        <div class="letter-text">
           If we want to see all the artists, we’d probably get out around 12 AM. I’m not sure yet how we’ll get home, but since it’ll be pretty late already, let’s just sleep at my house instead! Just a heads-up, my sister will be coming with us too lol 😹 She wanted to go as well, and she already paid for her own ticket, so yeah! I did some research, and they said that we’re not allowed to bring snacks inside, so we’ll have to buy them there. Make sure to bring enough money for snacks!
         </div>
 
+        <!-- WHAT TO REMEMBER -->
         <div class="remember-container">
           <div class="remember-title">WHAT TO REMEMBER</div>
           <ul class="remember-list">
@@ -128,6 +362,7 @@
           </ul>
         </div>
 
+        <!-- ENDING MESSAGE -->
         <div class="final-love-note">
           THAT'S IT!! It was so hard to keep this from you. I was so excited to tell you, but I kept my mouth shut (I didn't, actually. I said it, but my mic was muted). I REALLY HOPE YOU DON'T HAVE ANYTHING GOING ON ON NOVEMBER 21. MAY YOUR SCHEDULE ALIGN WITH OUR PLANS >__< I LOVE YOU SO MUCHHH, BABUUU!! 💗💗💗
         </div>
