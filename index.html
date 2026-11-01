@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body { 
       background-color: #1a1721; 
       font-family: 'Caveat', cursive; 
@@ -21,6 +22,7 @@
       color: #1e293b; 
     }
 
+    /* LANDING SCREEN */
     #landing-stage { 
       display: flex; 
       flex-direction: column; 
@@ -44,6 +46,7 @@
     }
 
     .guitar-btn:hover { transform: scale(1.08); }
+
     .guitar-emoji { 
       font-size: 110px; 
       filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.6)); 
@@ -69,6 +72,7 @@
       text-transform: uppercase; 
     }
 
+    /* NOTEBOOK CONTAINER */
     #notebook-container { 
       display: none; 
       width: 100%; 
@@ -77,30 +81,16 @@
 
     .notebook-spread { 
       background: #e8f1fd; 
-      border-radius: 16px; 
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 80px rgba(216, 229, 248, 0.8); 
+      border-radius: 12px; 
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
       display: flex; 
-      flex-direction: row; 
+      flex-direction: column; 
       position: relative; 
       overflow: hidden; 
-      border: 4px solid #ffffff; 
-    }
-
-    .notebook-spread::after { 
-      content: ''; 
-      position: absolute; 
-      top: 0; 
-      left: 50%; 
-      transform: translateX(-50%); 
-      width: 30px; 
-      height: 100%; 
-      background: linear-gradient(to right, rgba(0,0,0,0.08), rgba(0,0,0,0.02), rgba(0,0,0,0.08)); 
-      pointer-events: none; 
-      z-index: 10; 
+      border: 3px solid #64748b; 
     }
 
     .page { 
-      flex: 1; 
       padding: 30px 25px; 
       position: relative; 
       background-image: linear-gradient(#c5d9f8 1px, transparent 1px); 
@@ -109,91 +99,107 @@
       flex-direction: column;
     }
 
-    .page-left { border-right: 1px solid rgba(0,0,0,0.08); }
-
-    .header-box { 
-      border-top: 2px solid #2c3e50; 
-      border-bottom: 2px solid #2c3e50; 
-      padding: 6px 0; 
-      text-align: center; 
-      margin-bottom: 15px; 
+    .page-header-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ec4899;
+      padding-bottom: 4px;
+      margin-bottom: 15px;
     }
 
-    .page-num-top { 
+    .page-title-left {
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ec4899;
+      letter-spacing: 1px;
+    }
+
+    .page-num {
       font-family: 'Playfair Display', serif;
-      font-size: 0.85rem; 
-      font-weight: 700; 
-      letter-spacing: 1.5px; 
-      color: #64748b; 
-      margin-bottom: 2px; 
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #64748b;
+      letter-spacing: 1px;
     }
 
-    .main-title { 
-      font-family: 'Playfair Display', serif; 
-      font-size: 1.8rem; 
-      font-weight: 900; 
-      letter-spacing: 2px; 
-      color: #1e293b; 
-      text-transform: uppercase; 
+    .main-header-box {
+      text-align: center;
+      margin-bottom: 15px;
     }
 
-    .sub-title { 
-      font-size: 1.6rem; 
-      color: #ec4899; 
-      font-weight: 700; 
-    }
-
-    .cloud-box { 
-      background: #ffffff; 
-      border-radius: 30px; 
-      padding: 18px; 
-      margin: 15px 0; 
-      box-shadow: 0 4px 15px rgba(147, 197, 253, 0.25); 
-      border: 2px dashed #93c5fd; 
-      text-align: center; 
-    }
-
-    .cloud-title { 
+    .main-header-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.2rem; 
-      font-weight: 900; 
-      color: #ec4899; 
-      letter-spacing: 1px; 
-      margin: 6px 0; 
+      font-size: 2rem;
+      font-weight: 900;
+      color: #1e293b;
+      letter-spacing: 2px;
+    }
+
+    .main-header-sub {
+      font-family: 'Caveat', cursive;
+      font-size: 1.7rem;
+      color: #ec4899;
+      font-weight: 700;
     }
 
     .letter-text { 
-      font-size: 1.25rem; 
+      font-size: 1.3rem; 
       line-height: 28px; 
       color: #1e293b; 
       text-align: left; 
       margin-bottom: 14px; 
     }
 
-    .info-section-title { 
-      font-family: 'Playfair Display', serif; 
-      font-size: 1.25rem; 
-      font-weight: 900; 
+    /* CLOUD INVITATION BUBBLE */
+    .cloud-box { 
+      background: #ffffff; 
+      border-radius: 35px; 
+      padding: 20px; 
+      margin: 15px 0; 
+      box-shadow: 0 4px 15px rgba(147, 197, 253, 0.3); 
+      border: 2px dashed #93c5fd; 
       text-align: center; 
-      margin: 10px 0 15px 0; 
-      color: #1e293b; 
-      border-bottom: 2px solid #2c3e50; 
-      padding-bottom: 4px; 
+    }
+
+    .cloud-highlight {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #ec4899;
+      background: #fce7f3;
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin: 6px 0;
+      letter-spacing: 1px;
+    }
+
+    /* PHOTO GRID (3 CARDS SIDE BY SIDE) */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 15px 0;
     }
 
     .photo-card { 
       background: #ffffff; 
-      padding: 10px 10px 14px 10px; 
-      border-radius: 6px; 
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06); 
-      margin-bottom: 15px; 
+      padding: 8px; 
+      border-radius: 8px; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+      border: 1.5px solid #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .photo-frame { 
       width: 100%; 
-      height: 220px; 
+      height: 140px; 
       background: #f1f5f9; 
-      border-radius: 4px; 
+      border-radius: 6px; 
       overflow: hidden; 
       display: flex; 
       align-items: center; 
@@ -208,35 +214,38 @@
 
     .photo-caption { 
       font-size: 1.15rem; 
-      line-height: 1.3; 
+      line-height: 1.25; 
       color: #334155; 
       margin-top: 8px; 
       text-align: center; 
       font-weight: 600; 
     }
 
+    /* WHAT TO REMEMBER YELLOW BOX */
     .remember-container { 
-      background: #ffffff; 
-      border-left: 5px solid #ec4899; 
-      padding: 14px; 
-      border-radius: 0 10px 10px 0; 
+      background: #fef9c3; 
+      border: 2px solid #1e293b; 
+      border-radius: 8px; 
+      padding: 16px; 
       margin: 15px 0; 
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03); 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
     }
 
     .remember-title { 
       font-family: 'Playfair Display', serif;
-      font-size: 1.2rem; 
+      font-size: 1.4rem; 
       font-weight: 900; 
       color: #0f172a; 
       letter-spacing: 1px; 
-      margin-bottom: 8px; 
+      margin-bottom: 10px; 
+      border-bottom: 1.5px solid #cbd5e1;
+      padding-bottom: 4px;
     }
 
     .remember-list { list-style-type: none; }
 
     .remember-list li { 
-      font-size: 1.2rem; 
+      font-size: 1.25rem; 
       line-height: 1.4; 
       color: #1e293b; 
       margin-bottom: 6px; 
@@ -245,35 +254,41 @@
     }
 
     .remember-list li::before { 
-      content: '★'; 
+      content: '•'; 
       position: absolute; 
       left: 0; 
       color: #ec4899; 
-      font-size: 0.9rem; 
+      font-size: 1.2rem; 
     }
 
     .final-love-note { 
-      font-size: 1.35rem; 
+      font-size: 1.25rem; 
       line-height: 1.35; 
       color: #be185d; 
-      background: rgba(255, 255, 255, 0.75); 
+      background: rgba(255, 255, 255, 0.85); 
       padding: 14px; 
-      border-radius: 12px; 
+      border-radius: 10px; 
       border: 1.5px dashed #f472b6; 
       margin-top: 15px; 
       text-align: center; 
       font-weight: 600;
     }
 
-    @media (max-width: 768px) { 
-      .notebook-spread { flex-direction: column; } 
-      .page-left { border-right: none; border-bottom: 2px dashed #94a3b8; } 
+    /* STAR DECORATION */
+    .star-icon {
+      color: #eab308;
+      font-size: 1.4rem;
+      margin-right: 4px;
+    }
+
+    @media (max-width: 640px) { 
+      .photo-grid { grid-template-columns: 1fr; } 
     }
   </style>
 </head>
 <body>
 
-  <!-- GUITAR LANDING SCREEN -->
+  <!-- STEP 1: GUITAR LANDING SCREEN -->
   <div id="landing-stage">
     <button class="guitar-btn" onclick="openNotebook()">
       <div class="guitar-emoji">🎸</div>
@@ -281,16 +296,20 @@
     </button>
   </div>
 
-  <!-- 2-PAGE NOTEBOOK SPREAD -->
+  <!-- STEP 2: NOTEBOOK SPREAD -->
   <div id="notebook-container">
     <div class="notebook-spread">
       
       <!-- PAGE 01 -->
-      <div class="page page-left">
-        <div class="page-num-top">PAGE 01</div>
-        <div class="header-box">
-          <div class="main-title">HAPPY 4TH MONTHSARY</div>
-          <div class="sub-title">Gig with me?</div>
+      <div class="page">
+        <div class="page-header-line">
+          <div><span class="star-icon">★</span></div>
+          <div class="page-num">PAGE 01</div>
+        </div>
+
+        <div class="main-header-box">
+          <div class="main-header-title">HAPPY 4TH MONTHSARY</div>
+          <div class="main-header-sub">Gig with me?</div>
         </div>
 
         <div class="letter-text">
@@ -302,45 +321,52 @@
         </div>
 
         <div class="cloud-box">
-          <p style="font-size: 1.15rem; color: #475569;">So when I found out about this festival, I was like "naahhh di pwedeng hindi namin to puntahan." So, I'm officially inviting you to attend the</p>
-          <div class="cloud-title">FIREWORKS CIRCUS MUSIC FESTIVAL</div>
-          <p style="font-size: 1.15rem; color: #475569;">with me as my 4th monthsary gift and celebration with you!</p>
-        </div>
-
-        <!-- LINEUP PHOTO -->
-        <div class="photo-card">
-          <div class="photo-frame">
-            <img src="lineup.jpg" alt="Lineup Photo">
-          </div>
-          <div class="photo-caption">
-            We can actually go at whatever time we want, but the earlier, the better, so it’ll be less crowded and we can secure spots closer to the front.
-          </div>
+          <p style="font-size: 1.2rem; color: #475569;">So when I found out about this festival, I was like "naahhh di pwedeng hindi namin to puntahan." So, I'm officially inviting you to attend the</p>
+          <div class="cloud-highlight">FIREWORKS CIRCUS MUSIC FESTIVAL</div>
+          <p style="font-size: 1.2rem; color: #475569;">with me as my 4th monthsary gift and celebration with you!</p>
         </div>
       </div>
 
       <!-- PAGE 02 -->
-      <div class="page page-right">
-        <div class="page-num-top">PAGE 02</div>
-        
-        <div class="info-section-title">Here's what you need to know</div>
-
-        <!-- LAYOUT IMAGE CARD -->
-        <div class="photo-card">
-          <div class="photo-frame">
-            <img src="layout.jpg" alt="Layout Map Photo">
-          </div>
-          <div class="photo-caption">
-            We're in the Platinum area!
-          </div>
+      <div class="page" style="border-top: 2px dashed #94a3b8;">
+        <div class="page-header-line">
+          <div class="page-title-left"><span class="star-icon">★</span> Here's what you need to know</div>
+          <div class="page-num">PAGE 02</div>
         </div>
 
-        <!-- LOCATION IMAGE CARD -->
-        <div class="photo-card">
-          <div class="photo-frame">
-            <img src="location.jpg" alt="Location Map Photo">
+        <!-- 3-CARD PHOTO GRID -->
+        <div class="photo-grid">
+          <!-- LINEUP CARD -->
+          <div class="photo-card">
+            <div class="photo-frame">
+              <img src="lineup.jpg" alt="Lineup Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div style="display:none; color:#94a3b8; font-weight:bold; font-size:1.1rem;">lineup.jpg</div>
+            </div>
+            <div class="photo-caption">
+              We can actually go at whatever time we want, but the earlier, the better, so it’ll be less crowded and we can secure spots closer to the front.
+            </div>
           </div>
-          <div class="photo-caption">
-            📍Bridgetown Central Park, Pasig City
+
+          <!-- LAYOUT CARD -->
+          <div class="photo-card">
+            <div class="photo-frame">
+              <img src="layout.jpg" alt="Layout Map Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div style="display:none; color:#ec4899; font-weight:bold; font-size:1.1rem;">layout.jpg</div>
+            </div>
+            <div class="photo-caption" style="color: #ec4899;">
+              We're in the Platinum area!
+            </div>
+          </div>
+
+          <!-- LOCATION CARD -->
+          <div class="photo-card">
+            <div class="photo-frame">
+              <img src="location.jpg" alt="Location Map Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div style="display:none; color:#be185d; font-weight:bold; font-size:1.1rem;">location.jpg</div>
+            </div>
+            <div class="photo-caption">
+              📍Bridgetown Central Park, Pasig City
+            </div>
           </div>
         </div>
 
@@ -348,7 +374,7 @@
           If we want to see all the artists, we’d probably get out around 12 AM. I’m not sure yet how we’ll get home, but since it’ll be pretty late already, let’s just sleep at my house instead! Just a heads-up, my sister will be coming with us too lol 😹 She wanted to go as well, and she already paid for her own ticket, so yeah! I did some research, and they said that we’re not allowed to bring snacks inside, so we’ll have to buy them there. Make sure to bring enough money for snacks!
         </div>
 
-        <!-- WHAT TO REMEMBER -->
+        <!-- WHAT TO REMEMBER YELLOW BOX -->
         <div class="remember-container">
           <div class="remember-title">WHAT TO REMEMBER</div>
           <ul class="remember-list">
@@ -359,7 +385,7 @@
           </ul>
         </div>
 
-        <!-- ENDING MESSAGE -->
+        <!-- FINAL SIGN-OFF NOTE -->
         <div class="final-love-note">
           THAT'S IT!! It was so hard to keep this from you. I was so excited to tell you, but I kept my mouth shut (I didn't, actually. I said it, but my mic was muted). I REALLY HOPE YOU DON'T HAVE ANYTHING GOING ON ON NOVEMBER 21. MAY YOUR SCHEDULE ALIGN WITH OUR PLANS >__< I LOVE YOU SO MUCHHH, BABUUU!! 💗💗💗
         </div>
