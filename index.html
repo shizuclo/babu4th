@@ -6,12 +6,12 @@
   <title>Happy 4th Monthsary!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@500;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
     body { 
-      background-color: #1a1721; 
+      background-color: #121016; 
       font-family: 'Caveat', cursive; 
       min-height: 100vh; 
       display: flex; 
@@ -20,18 +20,45 @@
       justify-content: center; 
       padding: 20px 10px; 
       color: #1e293b; 
+      background-image: radial-gradient(rgba(236, 72, 153, 0.15) 1px, transparent 0);
+      background-size: 24px 24px;
     }
 
-    /* LANDING SCREEN */
+    /* STEP 1: ROCK & ROLL LANDING SCREEN */
     #landing-stage { 
       display: flex; 
       flex-direction: column; 
       align-items: center; 
       justify-content: center; 
       text-align: center; 
-      min-height: 80vh; 
+      min-height: 85vh; 
       width: 100%; 
+      position: relative;
     }
+
+    .vinyl-record {
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle, #334155 18%, #0f172a 20%, #000 40%, #1e293b 42%, #000 65%, #ec4899 66%, #be185d 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 30px rgba(236, 72, 153, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      animation: spin 8s linear infinite;
+      border: 3px solid #ffffff22;
+    }
+
+    .vinyl-hole {
+      width: 26px;
+      height: 26px;
+      background: #121016;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+    }
+
+    @keyframes spin { 100% { transform: rotate(360deg); } }
 
     .guitar-btn { 
       background: none; 
@@ -48,14 +75,14 @@
     .guitar-btn:hover { transform: scale(1.08); }
 
     .guitar-emoji { 
-      font-size: 110px; 
-      filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.6)); 
-      animation: pulse 2s infinite ease-in-out; 
+      font-size: 90px; 
+      filter: drop-shadow(0 0 20px rgba(236, 72, 153, 0.7)); 
+      animation: float 2.5s infinite ease-in-out; 
     }
 
-    @keyframes pulse { 
-      0%, 100% { transform: scale(1); } 
-      50% { transform: scale(1.05); } 
+    @keyframes float { 
+      0%, 100% { transform: translateY(0) rotate(-3deg); } 
+      50% { transform: translateY(-10px) rotate(3deg); } 
     }
 
     .start-btn-label { 
@@ -64,15 +91,15 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem; 
       font-weight: 800; 
-      padding: 14px 32px; 
+      padding: 14px 36px; 
       border-radius: 50px; 
-      letter-spacing: 1px; 
-      box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4); 
+      letter-spacing: 1.5px; 
+      box-shadow: 0 10px 30px rgba(236, 72, 153, 0.5); 
       border: 2px solid #ffffff; 
       text-transform: uppercase; 
     }
 
-    /* NOTEBOOK CONTAINER */
+    /* STEP 2: NOTEBOOK SPREAD WITH ZINE ACCENTS */
     #notebook-container { 
       display: none; 
       width: 100%; 
@@ -81,17 +108,17 @@
 
     .notebook-spread { 
       background: #e8f1fd; 
-      border-radius: 12px; 
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+      border-radius: 16px; 
+      box-shadow: 0 25px 60px rgba(0,0,0,0.7); 
       display: flex; 
       flex-direction: column; 
       position: relative; 
       overflow: hidden; 
-      border: 3px solid #64748b; 
+      border: 4px solid #ffffff; 
     }
 
     .page { 
-      padding: 30px 25px; 
+      padding: 35px 28px; 
       position: relative; 
       background-image: linear-gradient(#c5d9f8 1px, transparent 1px); 
       background-size: 100% 28px; 
@@ -99,100 +126,116 @@
       flex-direction: column;
     }
 
-    .page-header-line {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #ec4899;
-      padding-bottom: 4px;
-      margin-bottom: 15px;
-    }
-
-    .page-title-left {
-      font-family: 'Caveat', cursive;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #ec4899;
-      letter-spacing: 1px;
-    }
-
-    .page-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #64748b;
-      letter-spacing: 1px;
-    }
-
-    .main-header-box {
+    /* CONCERT TICKET PASS STUB HEADER */
+    .ticket-header-stub {
+      background: #ffffff;
+      border: 2px dashed #ec4899;
+      border-radius: 12px;
+      padding: 14px;
       text-align: center;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15);
     }
+
+    .ticket-header-stub::before, .ticket-header-stub::after {
+      content: '🎵';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+    }
+    .ticket-header-stub::before { left: 12px; }
+    .ticket-header-stub::after { right: 12px; }
 
     .main-header-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 900;
-      color: #1e293b;
+      color: #0f172a;
       letter-spacing: 2px;
     }
 
     .main-header-sub {
       font-family: 'Caveat', cursive;
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       color: #ec4899;
       font-weight: 700;
     }
 
     .letter-text { 
-      font-size: 1.3rem; 
+      font-size: 1.35rem; 
       line-height: 28px; 
       color: #1e293b; 
       text-align: left; 
-      margin-bottom: 14px; 
+      margin-bottom: 16px; 
     }
 
     /* CLOUD INVITATION BUBBLE */
     .cloud-box { 
       background: #ffffff; 
       border-radius: 35px; 
-      padding: 20px; 
-      margin: 15px 0; 
-      box-shadow: 0 4px 15px rgba(147, 197, 253, 0.3); 
-      border: 2px dashed #93c5fd; 
+      padding: 22px; 
+      margin: 18px 0; 
+      box-shadow: 0 6px 20px rgba(147, 197, 253, 0.35); 
+      border: 2.5px dashed #93c5fd; 
       text-align: center; 
+      position: relative;
+    }
+
+    .cloud-box::after {
+      content: '🎸';
+      position: absolute;
+      top: -14px;
+      right: 20px;
+      font-size: 1.5rem;
+      transform: rotate(15deg);
     }
 
     .cloud-highlight {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 900;
       color: #ec4899;
       background: #fce7f3;
-      padding: 4px 10px;
-      border-radius: 6px;
+      padding: 5px 14px;
+      border-radius: 8px;
       display: inline-block;
-      margin: 6px 0;
+      margin: 8px 0;
       letter-spacing: 1px;
+      border: 1px dashed #f472b6;
     }
 
-    /* PHOTO GRID (3 CARDS SIDE BY SIDE) */
+    /* PHOTO GRID (3 CARDS SIDE BY SIDE WITH LINEUP IN MIDDLE) */
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin: 15px 0;
+      gap: 16px;
+      margin: 20px 0;
     }
 
     .photo-card { 
       background: #ffffff; 
-      padding: 8px; 
+      padding: 10px 10px 14px 10px; 
       border-radius: 8px; 
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08); 
       border: 1.5px solid #cbd5e1;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
+    }
+
+    /* WASHI TAPE TAPE ACCENT ON PHOTOS */
+    .photo-card::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      width: 50px;
+      height: 16px;
+      background: rgba(236, 72, 153, 0.4);
+      transform: rotate(-4deg);
+      border-radius: 2px;
     }
 
     .photo-frame { 
@@ -213,72 +256,105 @@
     }
 
     .photo-caption { 
-      font-size: 1.15rem; 
-      line-height: 1.25; 
+      font-size: 1.2rem; 
+      line-height: 1.3; 
       color: #334155; 
       margin-top: 8px; 
       text-align: center; 
       font-weight: 600; 
     }
 
+    /* SMALLER & GRAY FONT SPECIFICALLY FOR LINEUP CAPTION IN MIDDLE */
+    .photo-caption-lineup {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.8rem !important;
+      line-height: 1.4 !important;
+      color: #64748b !important;
+      margin-top: 8px;
+      text-align: center;
+      font-weight: 500;
+    }
+
     /* WHAT TO REMEMBER YELLOW BOX */
     .remember-container { 
       background: #fef9c3; 
-      border: 2px solid #1e293b; 
-      border-radius: 8px; 
-      padding: 16px; 
-      margin: 15px 0; 
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+      border: 2px solid #0f172a; 
+      border-radius: 10px; 
+      padding: 18px; 
+      margin: 18px 0; 
+      box-shadow: 0 6px 15px rgba(0,0,0,0.06); 
+      position: relative;
+    }
+
+    .remember-container::before {
+      content: '📌 VIP CHECKLIST';
+      position: absolute;
+      top: -12px;
+      right: 15px;
+      background: #ec4899;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 12px;
+      letter-spacing: 1px;
     }
 
     .remember-title { 
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; 
+      font-size: 1.5rem; 
       font-weight: 900; 
       color: #0f172a; 
       letter-spacing: 1px; 
-      margin-bottom: 10px; 
-      border-bottom: 1.5px solid #cbd5e1;
+      margin-bottom: 12px; 
+      border-bottom: 2px solid #e2e8f0;
       padding-bottom: 4px;
     }
 
     .remember-list { list-style-type: none; }
 
     .remember-list li { 
-      font-size: 1.25rem; 
+      font-size: 1.3rem; 
       line-height: 1.4; 
       color: #1e293b; 
-      margin-bottom: 6px; 
-      padding-left: 18px; 
+      margin-bottom: 8px; 
+      padding-left: 20px; 
       position: relative; 
     }
 
     .remember-list li::before { 
-      content: '•'; 
+      content: '★'; 
       position: absolute; 
       left: 0; 
       color: #ec4899; 
-      font-size: 1.2rem; 
+      font-size: 1.1rem; 
     }
 
     .final-love-note { 
       font-size: 1.25rem; 
       line-height: 1.35; 
       color: #be185d; 
-      background: rgba(255, 255, 255, 0.85); 
-      padding: 14px; 
-      border-radius: 10px; 
+      background: rgba(255, 255, 255, 0.9); 
+      padding: 16px; 
+      border-radius: 12px; 
       border: 1.5px dashed #f472b6; 
-      margin-top: 15px; 
+      margin-top: 18px; 
       text-align: center; 
       font-weight: 600;
     }
 
-    /* STAR DECORATION */
-    .star-icon {
-      color: #eab308;
+    .section-divider {
+      font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
-      margin-right: 4px;
+      font-weight: 900;
+      color: #0f172a;
+      border-bottom: 2px solid #ec4899;
+      padding-bottom: 4px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     @media (max-width: 640px) { 
@@ -288,8 +364,11 @@
 </head>
 <body>
 
-  <!-- STEP 1: GUITAR LANDING SCREEN -->
+  <!-- STEP 1: GUITAR & VINYL LANDING SCREEN -->
   <div id="landing-stage">
+    <div class="vinyl-record">
+      <div class="vinyl-hole"></div>
+    </div>
     <button class="guitar-btn" onclick="openNotebook()">
       <div class="guitar-emoji">🎸</div>
       <div class="start-btn-label">Happy 4th Monthsary</div>
@@ -300,14 +379,9 @@
   <div id="notebook-container">
     <div class="notebook-spread">
       
-      <!-- PAGE 01 -->
+      <!-- PART 01 -->
       <div class="page">
-        <div class="page-header-line">
-          <div><span class="star-icon">★</span></div>
-          <div class="page-num">PAGE 01</div>
-        </div>
-
-        <div class="main-header-box">
+        <div class="ticket-header-stub">
           <div class="main-header-title">HAPPY 4TH MONTHSARY</div>
           <div class="main-header-sub">Gig with me?</div>
         </div>
@@ -321,33 +395,22 @@
         </div>
 
         <div class="cloud-box">
-          <p style="font-size: 1.2rem; color: #475569;">So when I found out about this festival, I was like "naahhh di pwedeng hindi namin to puntahan." So, I'm officially inviting you to attend the</p>
+          <p style="font-size: 1.25rem; color: #475569;">So when I found out about this festival, I was like "naahhh di pwedeng hindi namin to puntahan." So, I'm officially inviting you to attend the</p>
           <div class="cloud-highlight">FIREWORKS CIRCUS MUSIC FESTIVAL</div>
-          <p style="font-size: 1.2rem; color: #475569;">with me as my 4th monthsary gift and celebration with you!</p>
+          <p style="font-size: 1.25rem; color: #475569;">with me as my 4th monthsary gift and celebration with you!</p>
         </div>
       </div>
 
-      <!-- PAGE 02 -->
+      <!-- PART 02 -->
       <div class="page" style="border-top: 2px dashed #94a3b8;">
-        <div class="page-header-line">
-          <div class="page-title-left"><span class="star-icon">★</span> Here's what you need to know</div>
-          <div class="page-num">PAGE 02</div>
+        <div class="section-divider">
+          <span>🎵</span> Here's what you need to know
         </div>
 
-        <!-- 3-CARD PHOTO GRID -->
+        <!-- 3-CARD PHOTO GRID (LAYOUT | LINEUP IN MIDDLE | LOCATION) -->
         <div class="photo-grid">
-          <!-- LINEUP CARD -->
-          <div class="photo-card">
-            <div class="photo-frame">
-              <img src="lineup.jpg" alt="Lineup Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div style="display:none; color:#94a3b8; font-weight:bold; font-size:1.1rem;">lineup.jpg</div>
-            </div>
-            <div class="photo-caption">
-              We can actually go at whatever time we want, but the earlier, the better, so it’ll be less crowded and we can secure spots closer to the front.
-            </div>
-          </div>
-
-          <!-- LAYOUT CARD -->
+          
+          <!-- 1. LAYOUT CARD (LEFT) -->
           <div class="photo-card">
             <div class="photo-frame">
               <img src="layout.jpg" alt="Layout Map Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -358,7 +421,18 @@
             </div>
           </div>
 
-          <!-- LOCATION CARD -->
+          <!-- 2. LINEUP CARD (MIDDLE - SMALL GRAY SANS-SERIF CAPTION) -->
+          <div class="photo-card">
+            <div class="photo-frame">
+              <img src="lineup.jpg" alt="Lineup Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div style="display:none; color:#94a3b8; font-weight:bold; font-size:1.1rem;">lineup.jpg</div>
+            </div>
+            <div class="photo-caption-lineup">
+              We can actually go at whatever time we want, but the earlier, the better, so it’ll be less crowded and we can secure spots closer to the front.
+            </div>
+          </div>
+
+          <!-- 3. LOCATION CARD (RIGHT) -->
           <div class="photo-card">
             <div class="photo-frame">
               <img src="location.jpg" alt="Location Map Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -368,6 +442,7 @@
               📍Bridgetown Central Park, Pasig City
             </div>
           </div>
+
         </div>
 
         <div class="letter-text">
@@ -379,8 +454,7 @@
           <div class="remember-title">WHAT TO REMEMBER</div>
           <ul class="remember-list">
             <li>We should be EARLY (I will update you on the time).</li>
-            <li>Wear any attire.</li>
-            <li>Since there will be a lot of people, make sure to wear something that won’t make you feel too hot.</li>
+            <li>Wear any attire.Since there will be a lot of people, make sure to wear something that won’t make you feel too hot.</li>
             <li>Bring an umbrella, pocket money, and a change of clothes (just in case).</li>
           </ul>
         </div>
