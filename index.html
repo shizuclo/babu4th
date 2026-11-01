@@ -6,521 +6,413 @@
   <title>Happy 4th Monthsary!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Caveat:wght@700&family=Limelight&family=Oswald:wght@500;700&family=Syne:wght@800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: #0b090e;
-      font-family: 'Caveat', cursive;
-      min-height: 100vh;
+      background-color: #1a0b12;
+      font-family: 'Oswald', sans-serif;
+      color: #fdf8f5;
+      overflow-x: hidden;
+      /* Halftone / Comic Dot Background */
+      background-image: radial-gradient(#d97706 1.5px, transparent 2px);
+      background-size: 12px 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 20px 10px;
-      color: #1e293b;
-      background-image: 
-        radial-gradient(rgba(236, 72, 153, 0.25) 2px, transparent 0),
-        radial-gradient(rgba(250, 204, 21, 0.2) 2px, transparent 0);
-      background-size: 32px 32px;
-      background-position: 0 0, 16px 16px;
     }
 
-    /* STEP 1: TOP SECRET LANDING STAGE */
-    #landing-stage {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 85vh;
+    .poster-container {
       width: 100%;
+      max-width: 800px;
+      background: #1c1917;
       position: relative;
+      box-shadow: 0 0 50px rgba(0,0,0,0.8);
+      overflow: hidden;
     }
 
-    .top-secret-badge {
-      background: #ef4444;
-      color: #ffffff;
-      font-family: 'Syne', sans-serif;
-      font-weight: 900;
-      font-size: 0.85rem;
-      padding: 6px 18px;
-      transform: rotate(-4deg);
-      border: 2.5px solid #000000;
-      box-shadow: 4px 4px 0px #facc15;
-      margin-bottom: 30px;
-      letter-spacing: 2px;
+    /* --- SECTION 1: THE MARQUEE (Once Upon a Time in Hollywood Vibe) --- */
+    .hero-section {
+      padding: 60px 20px;
+      background: url('data:image/svg+xml;utf8,<svg opacity="0.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)"/></svg>'), linear-gradient(135deg, #e11d48, #9f1239);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      border-bottom: 10px solid #fde047;
+    }
+
+    .marquee-sign {
+      background: #fdf8f5;
+      border: 6px solid #1c1917;
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 10px 10px 0px #fde047, 0 0 30px rgba(225, 29, 72, 0.5);
+      border-radius: 10px;
+      transform: rotate(-3deg);
+      max-width: 90%;
+      z-index: 2;
+    }
+
+    /* Marquee Bulbs */
+    .marquee-sign::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: -12px; right: -12px; bottom: -12px;
+      border: 4px dotted #fde047;
+      border-radius: 16px;
+      pointer-events: none;
+      animation: blink 1.5s infinite alternate;
+    }
+
+    @keyframes blink {
+      0% { opacity: 0.5; filter: drop-shadow(0 0 2px #fde047); }
+      100% { opacity: 1; filter: drop-shadow(0 0 10px #fde047); }
+    }
+
+    .title-main {
+      font-family: 'Bungee Shade', cursive;
+      font-size: 3rem;
+      color: #e11d48;
+      line-height: 1.1;
       text-transform: uppercase;
-      animation: flash 2s infinite alternate;
+      margin-bottom: 10px;
     }
 
-    @keyframes flash {
-      0% { transform: rotate(-4deg) scale(1); }
-      100% { transform: rotate(-2deg) scale(1.05); }
+    .title-sub {
+      font-family: 'Limelight', cursive;
+      font-size: 2rem;
+      color: #1c1917;
+      letter-spacing: 2px;
     }
 
-    .vinyl-container {
+    /* --- SECTION 2: TORN PAPER LETTER (Jazz/Rock Collage Vibe) --- */
+    .letter-section {
+      padding: 60px 30px;
+      background: #f5f5f4;
+      color: #1c1917;
       position: relative;
-      margin-bottom: 25px;
+      clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%);
+      margin: -20px 0;
+      z-index: 3;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.5);
+    }
+
+    .letter-section::before {
+      content: '★ VIP EXCLUSIVE ★';
+      display: block;
+      text-align: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 4px;
+      color: #d97706;
+      margin-bottom: 20px;
+    }
+
+    .letter-text {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 1.4rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      text-align: justify;
+      position: relative;
+    }
+
+    .highlight-tape {
+      background: rgba(253, 224, 71, 0.8);
+      padding: 2px 5px;
+      transform: skewX(-10deg);
+      display: inline-block;
+    }
+
+    /* --- SECTION 3: THE FESTIVAL REVEAL (Disco / Bold Poster Vibe) --- */
+    .reveal-section {
+      background: #d97706;
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .reveal-intro {
+      font-family: 'Caveat', cursive;
+      font-size: 2.2rem;
+      color: #fff;
+      transform: rotate(-2deg);
+      margin-bottom: 20px;
+    }
+
+    .festival-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: #1c1917;
+      text-transform: uppercase;
+      line-height: 1;
+      text-shadow: 4px 4px 0px #fde047, 8px 8px 0px #e11d48;
+      margin: 20px 0;
+      transform: rotate(2deg);
     }
 
     .vinyl-record {
-      width: 140px;
-      height: 140px;
-      background: radial-gradient(circle, #334155 18%, #0f172a 20%, #000 40%, #1e293b 42%, #000 65%, #ec4899 66%, #be185d 100%);
+      width: 150px;
+      height: 150px;
+      background: repeating-radial-gradient(#1c1917 0, #1c1917 4px, #292524 5px, #292524 6px);
       border-radius: 50%;
-      box-shadow: 0 0 35px rgba(236, 72, 153, 0.5);
+      margin: 0 auto;
+      border: 4px solid #fde047;
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: spin 7s linear infinite;
-      border: 3px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 10px 10px 0px rgba(0,0,0,0.3);
+      animation: spin 10s linear infinite;
     }
 
-    .vinyl-hole {
-      width: 28px;
-      height: 28px;
-      background: #0b090e;
+    .vinyl-label {
+      width: 50px;
+      height: 50px;
+      background: #e11d48;
       border-radius: 50%;
-      border: 2px solid #ffffff;
+      border: 2px solid #fff;
     }
 
     @keyframes spin { 100% { transform: rotate(360deg); } }
 
-    .guitar-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      outline: none;
-      transition: transform 0.2s ease;
+    /* --- SECTION 4: PHOTO COLLAGE --- */
+    .photo-section {
+      padding: 60px 20px;
+      background: #1c1917;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 15px;
-    }
-
-    .guitar-btn:hover { transform: scale(1.08); }
-
-    .guitar-emoji {
-      font-size: 100px;
-      filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.8));
-      animation: float 2.5s infinite ease-in-out;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(-4deg); }
-      50% { transform: translateY(-12px) rotate(4deg); }
-    }
-
-    .start-btn-label {
-      background: #ec4899;
-      color: #ffffff;
-      font-family: 'Syne', sans-serif;
-      font-size: 1.35rem;
-      font-weight: 900;
-      padding: 16px 40px;
-      border-radius: 4px;
-      letter-spacing: 2px;
-      box-shadow: 6px 6px 0px #facc15, 9px 9px 0px #000000;
-      border: 3px solid #000000;
-      text-transform: uppercase;
-      transform: rotate(1deg);
-    }
-
-    /* STEP 2: GIG POSTER CONTAINER */
-    #notebook-container {
-      display: none;
-      width: 100%;
-      max-width: 980px;
-    }
-
-    .poster-board {
-      background: #e8f1fd;
-      border-radius: 12px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
-      display: flex;
-      flex-direction: column;
+      gap: 40px;
       position: relative;
-      overflow: hidden;
-      border: 4px solid #000000;
     }
 
-    .page {
-      padding: 35px 28px;
+    .photo-wrapper {
+      background: #fdf8f5;
+      padding: 15px 15px 25px 15px;
+      box-shadow: 10px 10px 0px #d97706;
+      border: 2px solid #000;
+      max-width: 90%;
+      width: 400px;
       position: relative;
-      background-image: linear-gradient(#c5d9f8 1px, transparent 1px);
-      background-size: 100% 28px;
-      display: flex;
-      flex-direction: column;
     }
 
-    /* RANSOM CUTOUT HEADER STUB */
-    .ticket-header-stub {
-      background: #ffffff;
-      border: 3px solid #000000;
-      border-radius: 8px;
-      padding: 18px;
-      text-align: center;
-      margin-bottom: 24px;
-      position: relative;
-      box-shadow: 6px 6px 0px #ec4899;
-    }
-
-    .sticker-badge {
+    /* Washi Tape */
+    .photo-wrapper::after {
+      content: '';
       position: absolute;
-      top: -12px;
-      left: 15px;
-      background: #facc15;
-      border: 2px solid #000000;
-      padding: 3px 10px;
-      font-family: 'Syne', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 800;
-      transform: rotate(-8deg);
-      box-shadow: 2px 2px 0px #000;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      width: 100px;
+      height: 30px;
+      background: rgba(225, 29, 72, 0.7);
+      border: 1px dashed #fff;
     }
 
-    .main-header-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: #0f172a;
-      letter-spacing: 2px;
+    .photo-wrapper:nth-child(1) { transform: rotate(-4deg); }
+    .photo-wrapper:nth-child(2) { transform: rotate(2deg); box-shadow: 10px 10px 0px #e11d48; }
+    .photo-wrapper:nth-child(3) { transform: rotate(-2deg); box-shadow: 10px 10px 0px #fde047; }
+
+    .photo-wrapper img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #1c1917;
+      filter: grayscale(20%) contrast(120%);
+    }
+
+    .caption-pink {
+      color: #e11d48;
+      font-size: 1.4rem;
+      text-align: center;
+      margin-top: 15px;
       text-transform: uppercase;
-    }
-
-    .main-header-sub {
-      font-family: 'Caveat', cursive;
-      font-size: 1.9rem;
-      color: #ec4899;
       font-weight: 700;
     }
 
-    .letter-text {
-      font-size: 1.35rem;
-      line-height: 28px;
-      color: #1e293b;
-      text-align: left;
-      margin-bottom: 16px;
-    }
-
-    /* CLOUD BUBBLE CONTAINER */
-    .cloud-box {
-      background: #ffffff;
-      border-radius: 35px;
-      padding: 24px;
-      margin: 18px 0;
-      box-shadow: 0 6px 20px rgba(147, 197, 253, 0.35);
-      border: 2.5px dashed #93c5fd;
+    .caption-gray {
+      color: #57534e;
+      font-family: sans-serif;
+      font-size: 1rem;
       text-align: center;
+      margin-top: 15px;
+      line-height: 1.4;
+    }
+
+    .caption-black {
+      color: #1c1917;
+      font-size: 1.3rem;
+      text-align: center;
+      margin-top: 15px;
+      font-weight: 700;
+    }
+
+    /* --- SECTION 5: THE TICKET STUB (What to Remember) --- */
+    .info-closing-section {
+      background: #fde047;
+      padding: 60px 30px;
+      color: #1c1917;
+      border-top: 8px dashed #1c1917;
+    }
+
+    .ticket-box {
+      border: 4px solid #1c1917;
+      padding: 30px;
       position: relative;
+      background: transparent;
     }
 
-    .cloud-box::after {
-      content: '⚡';
-      position: absolute;
-      top: -12px;
-      right: 25px;
-      font-size: 1.4rem;
-      background: #facc15;
-      border: 2px solid #000;
-      border-radius: 50%;
-      padding: 2px 6px;
-    }
-
-    .cloud-highlight {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: #ec4899;
-      background: #fce7f3;
-      padding: 6px 16px;
-      border-radius: 8px;
-      display: inline-block;
-      margin: 8px 0;
-      letter-spacing: 1px;
-      border: 1.5px dashed #f472b6;
-    }
-
-    /* 3-CARD PHOTO GRID */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 22px 0;
-    }
-
-    .photo-card {
-      background: #ffffff;
-      padding: 10px 10px 14px 10px;
-      border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      border: 2px solid #000000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-    }
-
-    .photo-card::before {
+    .ticket-box::before, .ticket-box::after {
       content: '';
       position: absolute;
-      top: -9px;
-      width: 45px;
-      height: 15px;
-      background: rgba(236, 72, 153, 0.5);
-      transform: rotate(-5deg);
-      border-radius: 2px;
-      border: 1px solid rgba(0,0,0,0.15);
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      background: #fde047;
+      border: 4px solid #1c1917;
+      border-radius: 50%;
+      transform: translateY(-50%);
     }
+    .ticket-box::before { left: -24px; border-right-color: transparent; border-top-color: transparent; transform: translateY(-50%) rotate(45deg); }
+    .ticket-box::after { right: -24px; border-left-color: transparent; border-bottom-color: transparent; transform: translateY(-50%) rotate(45deg); }
 
-    .photo-frame {
-      width: 100%;
-      height: 140px;
-      background: #f1f5f9;
-      border-radius: 4px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .photo-caption {
-      font-size: 1.2rem;
-      line-height: 1.3;
-      color: #334155;
-      margin-top: 8px;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    .photo-caption-lineup {
-      font-family: 'Plus Jakarta Sans', sans-serif !important;
-      font-size: 0.8rem !important;
-      line-height: 1.4 !important;
-      color: #64748b !important;
-      margin-top: 8px;
-      text-align: center;
-      font-weight: 500;
-    }
-
-    /* YELLOW TICKET BOX */
-    .remember-container {
-      background: #fef9c3;
-      border: 2.5px solid #000000;
-      border-radius: 6px;
-      padding: 20px;
-      margin: 20px 0;
-      box-shadow: 5px 5px 0px #000000;
-      position: relative;
-    }
-
-    .remember-title {
+    .ticket-title {
       font-family: 'Syne', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: #0f172a;
-      letter-spacing: 1px;
-      margin-bottom: 14px;
-      border-bottom: 2px dashed #000000;
-      padding-bottom: 4px;
+      font-size: 2.5rem;
+      text-align: center;
+      text-transform: uppercase;
+      border-bottom: 4px solid #1c1917;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
     }
 
-    .remember-list { list-style-type: none; }
-
-    .remember-list li {
+    .ticket-list {
+      list-style: none;
       font-size: 1.3rem;
-      line-height: 1.4;
-      color: #1e293b;
-      margin-bottom: 8px;
-      padding-left: 20px;
-      position: relative;
     }
 
-    .remember-list li::before {
-      content: '★';
+    .ticket-list li {
+      margin-bottom: 15px;
+      padding-left: 30px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .ticket-list li::before {
+      content: '🤘';
       position: absolute;
       left: 0;
-      color: #ec4899;
-      font-size: 1.1rem;
+      top: 2px;
     }
 
-    .final-love-note {
-      font-size: 1.25rem;
-      line-height: 1.35;
-      color: #be185d;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 16px;
-      border-radius: 10px;
-      border: 2px dashed #f472b6;
-      margin-top: 20px;
+    .final-note {
+      margin-top: 40px;
+      font-family: 'Caveat', cursive;
+      font-size: 2.2rem;
+      color: #e11d48;
       text-align: center;
-      font-weight: 600;
+      line-height: 1.2;
+      background: rgba(255,255,255,0.5);
+      padding: 20px;
+      border: 2px solid #e11d48;
+      transform: rotate(-1deg);
+      box-shadow: 5px 5px 0px #1c1917;
     }
 
-    .section-divider {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 900;
-      color: #0f172a;
-      border-bottom: 2.5px solid #000000;
-      padding-bottom: 6px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    @media (max-width: 640px) {
-      .photo-grid { grid-template-columns: 1fr; }
+    @media (max-width: 600px) {
+      .title-main { font-size: 2.2rem; }
+      .festival-name { font-size: 3rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- STEP 1: TOP SECRET LANDING STAGE -->
-  <div id="landing-stage">
-    <div class="top-secret-badge">🔒 TOP SECRET • FOR YOUR EYES ONLY</div>
-    <div class="vinyl-container">
-      <div class="vinyl-record">
-        <div class="vinyl-hole"></div>
+  <div class="poster-container">
+    
+    <!-- THE MARQUEE -->
+    <section class="hero-section">
+      <div class="marquee-sign">
+        <div class="title-main">HAPPY 4TH MONTHSARY</div>
+        <div class="title-sub">GIG WITH ME?</div>
       </div>
-    </div>
-    <button class="guitar-btn" onclick="openNotebook()">
-      <div class="guitar-emoji">🎸</div>
-      <div class="start-btn-label">Happy 4th Monthsary</div>
-    </button>
-  </div>
+    </section>
 
-  <!-- STEP 2: GIG POSTER INVITE -->
-  <div id="notebook-container">
-    <div class="poster-board">
+    <!-- TORN PAPER LETTER -->
+    <section class="letter-section">
+      <p class="letter-text">
+        Remember when I kept telling you that I had a gift for you that you might not receive on time? This is it! I booked this back on Sept 19, without knowing our exact upcoming schedules—which is why I kept asking you about your midterms, defense, and exams from time to time! Well, even though we still don't know for sure if you'll be free, I really hope you are! :))
+      </p>
+      <p class="letter-text">
+        You're my baby who <span class="highlight-tape">LOVES music</span> and takes every opportunity to listen to your favorite artists. The way music captivates you is something I truly adore about you. You mentioned once that you wanted to watch gigs with me. Honestly, I'm not usually the type of person to go out of my way or handle big crowds just to see an artist. But ever since you went to your school alone just to listen to OPM artists, something hit me—I would love to go to those kinds of events, as long as I'm with you.
+      </p>
+    </section>
+
+    <!-- THE REVEAL -->
+    <section class="reveal-section">
+      <div class="reveal-intro">So when I found out about this festival, I was like "naahhh di pwedeng hindi namin to puntahan." So, I'm officially inviting you to attend the</div>
       
-      <!-- PART 01 -->
-      <div class="page">
-        <div class="ticket-header-stub">
-          <div class="sticker-badge">★ PRIVATE ACCESS</div>
-          <div class="main-header-title">HAPPY 4TH MONTHSARY</div>
-          <div class="main-header-sub">Gig with me?</div>
-        </div>
-
-        <div class="letter-text">
-          Remember when I kept telling you that I had a gift for you that you might not receive on time? This is it! I booked this back on Sept 19, without knowing our exact upcoming schedules—which is why I kept asking you about your midterms, defense, and exams from time to time! Well, even though we still don't know for sure if you'll be free, I really hope you are! :))
-        </div>
-
-        <div class="letter-text">
-          You're my baby who LOVES music and takes every opportunity to listen to your favorite artists. The way music captivates you is something I truly adore about you. You mentioned once that you wanted to watch gigs with me. Honestly, I'm not usually the type of person to go out of my way or handle big crowds just to see an artist. But ever since you went to your school alone just to listen to OPM artists, something hit me—I would love to go to those kinds of events, as long as I'm with you.
-        </div>
-
-        <div class="cloud-box">
-          <p style="font-size: 1.25rem; color: #475569;">So when I found out about this festival, I was like "naahhh di pwedeng hindi namin to puntahan." So, I'm officially inviting you to attend the</p>
-          <div class="cloud-highlight">FIREWORKS CIRCUS MUSIC FESTIVAL</div>
-          <p style="font-size: 1.25rem; color: #475569;">with me as my 4th monthsary gift and celebration with you!</p>
-        </div>
+      <div class="festival-name">FIREWORKS<br>CIRCUS<br>MUSIC FESTIVAL</div>
+      
+      <div class="vinyl-record">
+        <div class="vinyl-label"></div>
       </div>
 
-      <!-- PART 02 -->
-      <div class="page" style="border-top: 2px dashed #94a3b8;">
-        <div class="section-divider">
-          <span>🎸</span> HERE'S WHAT YOU NEED TO KNOW
-        </div>
+      <div class="reveal-intro" style="margin-top: 20px;">with me as my 4th monthsary gift and celebration with you!</div>
+    </section>
 
-        <!-- 3-CARD PHOTO GRID -->
-        <div class="photo-grid">
-          
-          <!-- LAYOUT CARD (LEFT) -->
-          <div class="photo-card">
-            <div class="photo-frame">
-              <img src="layout.jpg" alt="Layout Map Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div style="display:none; color:#ec4899; font-weight:bold; font-size:1.1rem;">layout.jpg</div>
-            </div>
-            <div class="photo-caption" style="color: #ec4899;">
-              We're in the Platinum area!
-            </div>
-          </div>
-
-          <!-- LINEUP CARD (MIDDLE - SMALL GRAY CAPTION) -->
-          <div class="photo-card">
-            <div class="photo-frame">
-              <img src="lineup.jpg" alt="Lineup Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div style="display:none; color:#64748b; font-weight:bold; font-size:1.1rem;">lineup.jpg</div>
-            </div>
-            <div class="photo-caption-lineup">
-              We can actually go at whatever time we want, but the earlier, the better, so it’ll be less crowded and we can secure spots closer to the front.
-            </div>
-          </div>
-
-          <!-- LOCATION CARD (RIGHT) -->
-          <div class="photo-card">
-            <div class="photo-frame">
-              <img src="location.jpg" alt="Location Map Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div style="display:none; color:#be185d; font-weight:bold; font-size:1.1rem;">location.jpg</div>
-            </div>
-            <div class="photo-caption">
-              📍Bridgetown Central Park, Pasig City
-            </div>
-          </div>
-
-        </div>
-
-        <div class="letter-text">
-          If we want to see all the artists, we’d probably get out around 12 AM. I’m not sure yet how we’ll get home, but since it’ll be pretty late already, let’s just sleep at my house instead! Just a heads-up, my sister will be coming with us too lol 😹 She wanted to go as well, and she already paid for her own ticket, so yeah! I did some research, and they said that we’re not allowed to bring snacks inside, so we’ll have to buy them there. Make sure to bring enough money for snacks!
-        </div>
-
-        <!-- WHAT TO REMEMBER YELLOW TICKETING BOX -->
-        <div class="remember-container">
-          <div class="remember-title">WHAT TO REMEMBER</div>
-          <ul class="remember-list">
-            <li>We should be EARLY (I will update you on the time).</li>
-            <li>Wear any attire. Since there will be a lot of people, make sure to wear something that won’t make you feel too hot.</li>
-            <li>Bring an umbrella, pocket money, and a change of clothes (just in case).</li>
-          </ul>
-        </div>
-
-        <!-- FINAL SIGN-OFF NOTE -->
-        <div class="final-love-note">
-          THAT'S IT!! It was so hard to keep this from you. I was so excited to tell you, but I kept my mouth shut (I didn't, actually. I said it, but my mic was muted). I REALLY HOPE YOU DON'T HAVE ANYTHING GOING ON ON NOVEMBER 21. MAY YOUR SCHEDULE ALIGN WITH OUR PLANS >__< I LOVE YOU SO MUCHHH, BABUUU!! 💗💗💗
-        </div>
-
+    <!-- PHOTO COLLAGE -->
+    <section class="photo-section">
+      
+      <div class="photo-wrapper">
+        <img src="layout.jpg" alt="Layout Map Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div style="display:none; color:#e11d48; font-weight:bold; font-size:1.5rem; text-align:center;">[layout.jpg]</div>
+        <div class="caption-pink">We're in the Platinum area!</div>
       </div>
 
-    </div>
+      <div class="photo-wrapper">
+        <img src="lineup.jpg" alt="Lineup Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div style="display:none; color:#57534e; font-weight:bold; font-size:1.2rem; text-align:center;">[lineup.jpg]</div>
+        <div class="caption-gray">We can actually go at whatever time we want, but the earlier, the better, so it’ll be less crowded and we can secure spots closer to the front.</div>
+      </div>
+
+      <div class="photo-wrapper">
+        <img src="location.jpg" alt="Location Map Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div style="display:none; color:#1c1917; font-weight:bold; font-size:1.5rem; text-align:center;">[location.jpg]</div>
+        <div class="caption-black">📍Bridgetown Central Park, Pasig City</div>
+      </div>
+
+    </section>
+
+    <!-- CLOSING & TICKET STUB -->
+    <section class="info-closing-section">
+      
+      <p class="letter-text" style="text-align: left; margin-bottom: 40px; font-weight: 400;">
+        If we want to see all the artists, we’d probably get out around 12 AM. I’m not sure yet how we’ll get home, but since it’ll be pretty late already, let’s just sleep at my house instead! Just a heads-up, my sister will be coming with us too lol 😹 She wanted to go as well, and she already paid for her own ticket, so yeah! I did some research, and they said that we’re not allowed to bring snacks inside, so we’ll have to buy them there. Make sure to bring enough money for snacks!
+      </p>
+
+      <div class="ticket-box">
+        <div class="ticket-title">WHAT TO REMEMBER</div>
+        <ul class="ticket-list">
+          <li>We should be EARLY (I will update you on the time).</li>
+          <li>Wear any attire. Since there will be a lot of people, make sure to wear something that won’t make you feel too hot.</li>
+          <li>Bring an umbrella, pocket money, and a change of clothes (just in case).</li>
+        </ul>
+      </div>
+
+      <div class="final-note">
+        THAT'S IT!! It was so hard to keep this from you. I was so excited to tell you, but I kept my mouth shut (I didn't, actually. I said it, but my mic was muted). I REALLY HOPE YOU DON'T HAVE ANYTHING GOING ON ON NOVEMBER 21. MAY YOUR SCHEDULE ALIGN WITH OUR PLANS >__< I LOVE YOU SO MUCHHH, BABUUU!! 💗💗💗
+      </div>
+
+    </section>
+
   </div>
-
-  <script>
-    function playPowerChord() {
-      try {
-        const synth = new Tone.PolySynth(Tone.Synth).toDestination();
-        const now = Tone.now();
-        synth.triggerAttackRelease(["E2", "B2", "E3", "G#3"], "8n", now);
-      } catch (e) {
-        // Audio fallback
-      }
-    }
-
-    function openNotebook() {
-      playPowerChord();
-      document.getElementById('landing-stage').style.display = 'none';
-      document.getElementById('notebook-container').style.display = 'block';
-
-      if (typeof confetti === 'function') {
-        confetti({
-          particleCount: 80,
-          spread: 70,
-          origin: { y: 0.6 }
-        });
-      }
-    }
-  </script>
 
 </body>
 </html>
+
+```
