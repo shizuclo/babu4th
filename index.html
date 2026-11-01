@@ -21,18 +21,76 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-height: 100vh;
     }
 
-    .poster-container {
+    /* --- INITIAL LANDING SCREEN --- */
+    #landing-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 100;
+      background-color: #1a0b12;
+      background-image: radial-gradient(#d97706 1.5px, transparent 2px);
+      background-size: 12px 12px;
+    }
+
+    .secret-btn {
+      background: #e11d48;
+      color: #fdf8f5;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      padding: 20px 40px;
+      border: 4px solid #1c1917;
+      box-shadow: 8px 8px 0px #fde047;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transform: rotate(-2deg);
+      transition: all 0.2s ease;
+      animation: pulse 2s infinite alternate;
+    }
+
+    .secret-btn:hover {
+      transform: scale(1.05) rotate(-2deg);
+      box-shadow: 12px 12px 0px #fde047;
+    }
+
+    .secret-label {
+      font-family: 'Oswald', sans-serif;
+      color: #fde047;
+      font-size: 1.2rem;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+      background: #1c1917;
+      padding: 5px 15px;
+      transform: rotate(2deg);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1) rotate(-2deg); }
+      100% { transform: scale(1.03) rotate(-2deg); }
+    }
+
+    /* --- THE POSTER (HIDDEN INITIALLY) --- */
+    #poster-container {
+      display: none;
       width: 100%;
       max-width: 800px;
       background: #1c1917;
       position: relative;
       box-shadow: 0 0 50px rgba(0,0,0,0.8);
       overflow: hidden;
+      margin: 20px 0;
     }
 
-    /* --- SECTION 1: THE MARQUEE (Once Upon a Time in Hollywood Vibe) --- */
+    /* --- SECTION 1: THE MARQUEE --- */
     .hero-section {
       padding: 60px 20px;
       background: url('data:image/svg+xml;utf8,<svg opacity="0.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)"/></svg>'), linear-gradient(135deg, #e11d48, #9f1239);
@@ -56,7 +114,6 @@
       z-index: 2;
     }
 
-    /* Marquee Bulbs */
     .marquee-sign::before {
       content: '';
       position: absolute;
@@ -88,7 +145,7 @@
       letter-spacing: 2px;
     }
 
-    /* --- SECTION 2: TORN PAPER LETTER (Jazz/Rock Collage Vibe) --- */
+    /* --- SECTION 2: TORN PAPER LETTER --- */
     .letter-section {
       padding: 60px 30px;
       background: #f5f5f4;
@@ -128,7 +185,7 @@
       display: inline-block;
     }
 
-    /* --- SECTION 3: THE FESTIVAL REVEAL (Disco / Bold Poster Vibe) --- */
+    /* --- SECTION 3: THE REVEAL --- */
     .reveal-section {
       background: #d97706;
       padding: 80px 20px;
@@ -202,7 +259,6 @@
       position: relative;
     }
 
-    /* Washi Tape */
     .photo-wrapper::after {
       content: '';
       position: absolute;
@@ -252,7 +308,7 @@
       font-weight: 700;
     }
 
-    /* --- SECTION 5: THE TICKET STUB (What to Remember) --- */
+    /* --- SECTION 5: TICKET STUB --- */
     .info-closing-section {
       background: #fde047;
       padding: 60px 30px;
@@ -332,7 +388,14 @@
 </head>
 <body>
 
-  <div class="poster-container">
+  <!-- SPOILER-FREE LANDING SCREEN -->
+  <div id="landing-stage">
+    <div class="secret-label">STRICTLY CONFIDENTIAL</div>
+    <button class="secret-btn" onclick="revealPoster()">TAP TO REVEAL</button>
+  </div>
+
+  <!-- THE POSTER -->
+  <div class="poster-container" id="poster-container">
     
     <!-- THE MARQUEE -->
     <section class="hero-section">
@@ -412,7 +475,14 @@
 
   </div>
 
+  <script>
+    function revealPoster() {
+      // Hide the initial landing screen
+      document.getElementById('landing-stage').style.display = 'none';
+      // Show the poster content and enable scrolling
+      document.getElementById('poster-container').style.display = 'block';
+    }
+  </script>
+
 </body>
 </html>
-
-```
