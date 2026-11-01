@@ -15,7 +15,7 @@
       font-family: 'Oswald', sans-serif;
       color: #fdf8f5;
       overflow-x: hidden;
-      /* Halftone / Comic Dot Background */
+      /* Halftone / Comic Dot Background for the poster inside */
       background-image: radial-gradient(#d97706 1.5px, transparent 2px);
       background-size: 12px 12px;
       display: flex;
@@ -35,9 +35,8 @@
       position: absolute;
       top: 0; left: 0;
       z-index: 100;
-      background-color: #1a0b12;
-      background-image: radial-gradient(#d97706 1.5px, transparent 2px);
-      background-size: 12px 12px;
+      /* Distinct, sleek dark background to contrast the vibrant poster inside */
+      background: radial-gradient(circle at center, #2e0916 0%, #0a0508 80%);
     }
 
     .secret-btn {
@@ -46,36 +45,34 @@
       font-family: 'Syne', sans-serif;
       font-size: 1.8rem;
       font-weight: 800;
-      padding: 20px 40px;
+      padding: 30px 50px;
       border: 4px solid #1c1917;
-      box-shadow: 8px 8px 0px #fde047;
+      box-shadow: 10px 10px 0px #fde047;
       cursor: pointer;
       text-transform: uppercase;
       letter-spacing: 2px;
       transform: rotate(-2deg);
       transition: all 0.2s ease;
-      animation: pulse 2s infinite alternate;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
     }
 
     .secret-btn:hover {
       transform: scale(1.05) rotate(-2deg);
-      box-shadow: 12px 12px 0px #fde047;
+      box-shadow: 14px 14px 0px #fde047;
     }
 
-    .secret-label {
-      font-family: 'Oswald', sans-serif;
-      color: #fde047;
-      font-size: 1.2rem;
-      letter-spacing: 4px;
-      margin-bottom: 15px;
-      background: #1c1917;
-      padding: 5px 15px;
-      transform: rotate(2deg);
+    .guitar-icon {
+      font-size: 5.5rem;
+      filter: drop-shadow(0 0 20px rgba(253, 224, 71, 0.6));
+      animation: float 2.5s infinite ease-in-out;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1) rotate(-2deg); }
-      100% { transform: scale(1.03) rotate(-2deg); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-12px) rotate(4deg); }
     }
 
     /* --- THE POSTER (HIDDEN INITIALLY) --- */
@@ -155,17 +152,6 @@
       margin: -20px 0;
       z-index: 3;
       box-shadow: 0 20px 30px rgba(0,0,0,0.5);
-    }
-
-    .letter-section::before {
-      content: '★ VIP EXCLUSIVE ★';
-      display: block;
-      text-align: center;
-      font-family: 'Syne', sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: 4px;
-      color: #d97706;
-      margin-bottom: 20px;
     }
 
     .letter-text {
@@ -383,15 +369,18 @@
     @media (max-width: 600px) {
       .title-main { font-size: 2.2rem; }
       .festival-name { font-size: 3rem; }
+      .guitar-icon { font-size: 4rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- SPOILER-FREE LANDING SCREEN -->
+  <!-- HINTED LANDING SCREEN -->
   <div id="landing-stage">
-    <div class="secret-label">STRICTLY CONFIDENTIAL</div>
-    <button class="secret-btn" onclick="revealPoster()">TAP TO REVEAL</button>
+    <button class="secret-btn" onclick="revealPoster()">
+      <div class="guitar-icon">🎸</div>
+      <div>HAPPY 4TH MONTHSARY</div>
+    </button>
   </div>
 
   <!-- THE POSTER -->
@@ -479,7 +468,7 @@
     function revealPoster() {
       // Hide the initial landing screen
       document.getElementById('landing-stage').style.display = 'none';
-      // Show the poster content and enable scrolling
+      // Show the poster content
       document.getElementById('poster-container').style.display = 'block';
     }
   </script>
